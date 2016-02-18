@@ -13,12 +13,13 @@
 
   <div class="field">
     <%= f.label :mov_class %><br>
-    <%= f.text_field :mov_class %>
+	<%= f.select :mov_class, options_for_select([["Ingreso", "I"], ["Egreso", "E"]]) %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.date_select(:date,:start_year => 2015) %>
   </div>
+    
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
