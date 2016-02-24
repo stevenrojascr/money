@@ -10,10 +10,14 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :entity %><br>
+	<%= f.select :entity, options_for_select([["Personal", "PER"], ["Tecnología", "TYC"], ["Steico", "SCO"], ["Systek", "SYS"], ["Inktec","INK"], ["Sincor", "SNR"]]) %>  
 
   <div class="field">
     <%= f.label :mov_class %><br>
-	<%= f.select :mov_class, options_for_select([["Ingreso", "I"], ["Egreso", "E"]]) %>
+	<%= f.select :mov_class, options_for_select([["Egreso", "E"], ["Ingreso", "I"]]) %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
