@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Entity:</strong>
+  <%= @movement.entity %>
+</p>
+
+<p>
   <strong>Class:</strong>
   <%= @movement.mov_class %>
 </p>
@@ -17,8 +22,9 @@
 
 <p>
   <strong>Amount:</strong>
-  <%= @movement.amount %>
+  <%= number_with_precision(@movement.amount, presicion: 2, delimiter: ",") %>
 </p>
 
+<%= link_to 'New Movement', new_movement_path %> |
 <%= link_to 'Edit', edit_movement_path(@movement) %> |
 <%= link_to 'Back', movements_path %>
