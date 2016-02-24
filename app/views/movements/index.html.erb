@@ -25,6 +25,12 @@
         <td><%= link_to 'Destroy', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+	<div>
+		<% b=Budget.new%>
+		<% b.calculate_budget(@movements) %>
+		<span>Total Balance: </span>
+		<%= number_to_currency(b.total_balance, unit:"CRC ") %>
+	</div>
   </tbody>
 </table>
 
