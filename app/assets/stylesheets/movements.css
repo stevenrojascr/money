@@ -4,3 +4,11 @@
 #MovementList {
 	font-size: 60%;	
 }
+
+#MovementList .list-line-even {
+	background: #e0f8f8;
+}
+
+#MovementList .list-line-odd {
+	background: #f8b0f8;
+}

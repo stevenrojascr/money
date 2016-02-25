@@ -17,7 +17,7 @@
 
   <tbody>
     <% @movements.each do |movement| %>
-      <tr>
+      <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
         <td><%= movement.mov_class %></td>
         <td><%= movement.date.strftime("%d/%m") %></td>
         <td><%= movement.description %></td>
