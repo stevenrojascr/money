@@ -19,7 +19,7 @@
     <% @movements.each do |movement| %>
       <tr>
         <td><%= movement.mov_class %></td>
-        <td><%= movement.date %></td>
+        <td><%= movement.date.strftime("%d/%m") %></td>
         <td><%= movement.description %></td>
         <td align="right"><%= number_with_precision(movement.amount, presicion: 2, delimiter: ",") %></td>
         <td><%= link_to 'Shw', movement %></td>
