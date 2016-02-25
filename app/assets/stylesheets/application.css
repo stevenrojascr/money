@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+/********** Small devices only **********/
+@media (max-width: 320px) {
+
+#MovementList {
+	font-size: 60%;	
+}
+
