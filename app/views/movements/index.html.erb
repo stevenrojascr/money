@@ -4,6 +4,23 @@
 <h1>Listing Movements </h1>
 <h2><%= link_to 'New Movement', new_movement_path %></h2>
 
+<table>
+	<tbody>
+		<tr>
+			<td> I: </td>
+			<td align="right"> <%= number_to_currency(@budget.total_incomes, unit:"") %>  </td>
+		</tr>
+		<tr>
+			<td> E: </td>
+			<td align="right"> <%= number_to_currency(@budget.total_expenses, unit:"") %>  </td>
+		</tr>
+		<tr>
+			<td> B: </td>
+			<td align="right"> <%= number_to_currency(@budget.total_balance, unit:"") %>  </td>
+		</tr>
+	</tbody>
+</table>
+
 <table id="MovementList">
   <thead>
     <tr>
@@ -27,12 +44,7 @@
         <td><%= link_to 'Dtr', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-	<div>
-		<% b=Budget.new%>
-		<% b.calculate_budget(@movements) %>
-		<span>Total Balance: </span>
-		<%= number_to_currency(b.total_balance, unit:"CRC ") %>
-	</div>
+
   </tbody>
 </table>
 

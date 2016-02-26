@@ -4,7 +4,9 @@ class MovementsController < ApplicationController
   # GET /movements
   # GET /movements.json
   def index
-    @movements = Movement.all
+    @movements = Movement.all.order("date desc")
+    @budget=Budget.new
+    @budget.calculate_budget(@movements)
   end
 
   # GET /movements/1
