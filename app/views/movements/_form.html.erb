@@ -13,11 +13,11 @@
   
   <div class="field">
     <%= f.label :entity %><br>
-	<%= f.select :entity, options_for_select([["Personal", "PER"], ["Tecnología", "TYC"], ["Steico", "SCO"], ["Systek", "SYS"], ["Inktec","INK"], ["Sincor", "SNR"]]) %>  
+	<%= f.select :entity, options_for_select([["Personal", "PER"], ["Tecnología", "TYC"], ["Steico", "SCO"], ["Systek", "SYS"], ["Inktec","INK"], ["Sincor", "SNR"]], selected: @movement.entity) %>  
 
   <div class="field">
     <%= f.label :mov_class %><br>
-	<%= f.select :mov_class, options_for_select([["Egreso", "E"], ["Ingreso", "I"]]) %>
+	<%= f.select :mov_class, options_for_select([["Egreso", "E"], ["Ingreso", "I"]], selected: @movement.mov_class) %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
