@@ -1,0 +1,15 @@
+body {
+  font-family: Helvetica;
+}
+h1 {
+	margin-top: 70px;
+  	margin-bottom: 15px;
+  	text-align: center;
+  	font-size: 200%;
+}
+
+section {
+	background-color: #959595;
+	padding: 2%;
+  	margin: 2%;	
+}

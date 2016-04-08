@@ -1,53 +1,52 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Movements </h1>
-<h2><%= link_to 'New Movement', new_movement_path %></h2>
 
-<table>
-	<tbody>
-		<tr>
-			<td> I: </td>
-			<td align="right"> <%= number_to_currency(@budget.total_incomes, unit:"") %>  </td>
-		</tr>
-		<tr>
-			<td> E: </td>
-			<td align="right"> <%= number_to_currency(@budget.total_expenses, unit:"") %>  </td>
-		</tr>
-		<tr>
-			<td> B: </td>
-			<td align="right"> <%= number_to_currency(@budget.total_balance, unit:"") %>  </td>
-		</tr>
-	</tbody>
-</table>
+<div class="container">
+	<h3>Listing Movements <%= link_to 'New', new_movement_path, class: "btn btn-primary btn-xs " %> </h3>
 
-<table id="MovementList">
-  <thead>
-    <tr>
-      <th>C</th>
-      <th>Date</th>
-      <th>Description</th>
-      <th>Amount</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<table>
+		<tbody>
+			<tr>
+				<td> I: </td>
+				<td align="right"> <%= number_to_currency(@budget.total_incomes, unit:"") %>  </td>
+			</tr>
+			<tr>
+				<td> E: </td>
+				<td align="right"> <%= number_to_currency(@budget.total_expenses, unit:"") %>  </td>
+			</tr>
+			<tr>
+				<td> B: </td>
+				<td align="right"> <%= number_to_currency(@budget.total_balance, unit:"") %>  </td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="table">          
 
-  <tbody>
-    <% @movements.each do |movement| %>
-      <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-        <td><%= movement.mov_class %></td>
-        <td><%= movement.date.strftime("%d/%m") %></td>
-        <td><%= movement.description %></td>
-        <td align="right"><%= number_with_precision(movement.amount, presicion: 2, delimiter: ",") %></td>
-        <td><%= link_to 'Shw', movement %></td>
-        <td><%= link_to 'Ed', edit_movement_path(movement) %></td>
-        <td><%= link_to 'Dtr', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+		<table id="MovementList" class="table-striped">
+		  <thead>
+		    <tr>
+		      <th>C</th>
+		      <th>Date</th>
+		      <th>Description</th>
+		      <th>Amount</th>
+		    </tr>
+		  </thead>
 
-  </tbody>
-</table>
+		  <tbody>
+		    <% @movements.each do |movement| %>
+		      <tr>
+		        <td><%= movement.mov_class %></td>
+		        <td><%= movement.date.strftime("%d/%m") %></td>
+		        <td><%= movement.description %></td>
+		        <td align="right"><%= number_with_precision(movement.amount, presicion: 2, delimiter: ",") %></td>
+		        <td><%= link_to 'Shw', movement %></td>
+		        <td><%= link_to 'Ed', edit_movement_path(movement) %></td>
+		        <td><%= link_to 'Dtr', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		      </tr>
+		    <% end %>
 
-<br>
-
-<%= link_to 'New Movement', new_movement_path %>
+		  </tbody>
+		</table>
+	</div>
+</div>
