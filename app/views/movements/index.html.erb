@@ -8,17 +8,19 @@
 	<%= form_tag(movements_path, method: "get") do %>
 	  <%= label_tag(:q, "Class:") %>
 	  <%= select_tag(:mov_class, options_for_select([["Egreso", "E"], ["Ingreso", "I"]], selected: params[:mov_class]), include_blank: "All") %> 
+	  <br>
 	  <%= label_tag(:q, "Entity:") %>
 	  <%= select_tag(:entity, options_for_select([["Personal", "PER"], ["Tecnología", "TYC"], ["Steico", "SCO"], ["Systek", "SYS"], ["Inktec","INK"], ["Sincor", "SNR"]], selected: params[:entity]), include_blank: "All") %> 
 	  <br>
-	  <%= label_tag(:q, "Desde:") %>
+	  <%= label_tag(:q, "Fr:") %>
 	  <%= date_field_tag :date1, params[:date1], :order => [:day, :month, :year]%>
 	  <br>
-	  <%= label_tag(:q, "A:") %>
+	  <%= label_tag(:q, "To:") %>
 	  <%= date_field_tag :date2, params[:date2], :order => [:day, :month, :year]%> 
 	  <br>
 	  <%= label_tag(:q, "Descrip:") %>
-	  <%= text_field_tag(:description, params[:description]) %>  
+	  <%= text_field_tag(:description, params[:description]) %>
+	  <br>  
 	  <%= submit_tag("Search") %>
 	  <%= link_to "Clear", movements_path%>
 	<% end %>
