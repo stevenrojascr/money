@@ -4,6 +4,25 @@
 
 <div class="container">
 	<h3>Listing Movements <%= link_to 'New', new_movement_path, class: "btn btn-primary btn-xs " %> </h3>
+	
+	<%= form_tag(movements_path, method: "get") do %>
+	  <%= label_tag(:q, "Class:") %>
+	  <%= select_tag(:mov_class, options_for_select([["Egreso", "E"], ["Ingreso", "I"]], selected: params[:mov_class]), include_blank: "All") %> 
+	  <%= label_tag(:q, "Entity:") %>
+	  <%= select_tag(:entity, options_for_select([["Personal", "PER"], ["Tecnología", "TYC"], ["Steico", "SCO"], ["Systek", "SYS"], ["Inktec","INK"], ["Sincor", "SNR"]], selected: params[:entity]), include_blank: "All") %> 
+	  <br>
+	  <%= label_tag(:q, "Desde:") %>
+	  <%= date_field_tag :date1, params[:date1], :order => [:day, :month, :year]%>
+	  <br>
+	  <%= label_tag(:q, "A:") %>
+	  <%= date_field_tag :date2, params[:date2], :order => [:day, :month, :year]%> 
+	  <br>
+	  <%= label_tag(:q, "Descrip:") %>
+	  <%= text_field_tag(:description, params[:description]) %>  
+	  <%= submit_tag("Search") %>
+	  <%= link_to "Clear", movements_path%>
+	<% end %>
+	<br>
 
 	<table>
 		<tbody>
@@ -21,6 +40,7 @@
 			</tr>
 		</tbody>
 	</table>
+	<br>
 	<div class="table">          
 
 		<table id="MovementList" class="table-striped">
